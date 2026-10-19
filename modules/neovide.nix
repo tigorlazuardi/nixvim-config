@@ -1,17 +1,4 @@
-# Neovide GUI tweaks + foot terminal launcher (platform-specific bits of
-# the old home-manager module that the base config depended on).
-{
-  config,
-  lib,
-  ...
-}:
-let
-  footBinary =
-    if config.programs.foot.server.enable then
-      lib.meta.getExe' config.programs.foot.package "footclient"
-    else
-      lib.meta.getExe config.programs.foot.package;
-in
+# Neovide GUI tweaks.
 {
   programs.nixvim.extraConfigLua = # lua
     ''
@@ -38,18 +25,6 @@ in
           vim.o.guifont = font .. ":h" .. font_size
           vim.notify("Font Set: " .. font .. ":h" .. font_size)
         end, { desc = "Increase font size" })
-
-        vim.keymap.set({ "n" }, "<F5>", function()
-          local cwd = vim.fn.getcwd()
-          local title = ([[Neovide - Foot - %s]]):format(cwd)
-          vim.system({
-            "systemd-run",
-            "--user",
-            "${footBinary}",
-            "--working-directory",
-            cwd,
-          })
-        end, { desc = "Open foot terminal in Neovide" })
 
         vim.keymap.set(
           { "n", "v", "s", "x", "o", "i", "l", "c", "t" },
