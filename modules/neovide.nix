@@ -1,5 +1,17 @@
 # Neovide GUI tweaks.
 {
+  lib,
+  pkgs,
+  ...
+}:
+{
+  # Neovide GUI + the font its block below uses; list stays plain so consumers append.
+  home.packages = [
+    pkgs.neovide
+    pkgs.nerd-fonts.jetbrains-mono
+  ];
+  fonts.fontconfig.enable = lib.mkDefault true;
+
   programs.nixvim.extraConfigLua = # lua
     ''
       if vim.g.neovide then
