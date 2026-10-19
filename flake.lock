@@ -21,6 +21,22 @@
         "type": "github"
       }
     },
+    "flash.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1787427371,
+        "narHash": "sha256-88DoXkz8M6ehkzS9VNu2/T0FENpduTbgiUZd+GeVVX4=",
+        "owner": "folke",
+        "repo": "flash.nvim",
+        "rev": "5f0f270fdc7c5b0c21d903ee85b9cb06f2ac636a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "flash.nvim",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -38,6 +54,38 @@
       "original": {
         "owner": "nix-community",
         "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "mini.ai": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1791889038,
+        "narHash": "sha256-W3MfHL7yWqSq4UrwDFtNHgIz3eCRJyaNbkGSXqzVgMg=",
+        "owner": "nvim-mini",
+        "repo": "mini.ai",
+        "rev": "d0c4987a1ead2bcf4eb22cc9815c662d76677c08",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-mini",
+        "repo": "mini.ai",
+        "type": "github"
+      }
+    },
+    "mini.pairs": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1791889043,
+        "narHash": "sha256-41H0fep+U0m9IADLPhsICGjPgCPQly1FMdcg87qvio8=",
+        "owner": "nvim-mini",
+        "repo": "mini.pairs",
+        "rev": "03eb1f0062a2cee5314d1ac3939246e4bb21352e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-mini",
+        "repo": "mini.pairs",
         "type": "github"
       }
     },
@@ -77,12 +125,34 @@
         "type": "github"
       }
     },
+    "nvim-treesitter-textobjects": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1788416986,
+        "narHash": "sha256-5f2oiz/c/7/cIj+AUaFuB+sm7ZAfwoQeY4r3+XfUDrI=",
+        "owner": "nvim-treesitter",
+        "repo": "nvim-treesitter-textobjects",
+        "rev": "5c7b0263797dfd1bd6202f2b219f3b53a80b2187",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-treesitter",
+        "ref": "main",
+        "repo": "nvim-treesitter-textobjects",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
+        "flash.nvim": "flash.nvim",
         "home-manager": "home-manager",
+        "mini.ai": "mini.ai",
+        "mini.pairs": "mini.pairs",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
-        "tokyonight.nvim": "tokyonight.nvim"
+        "nvim-treesitter-textobjects": "nvim-treesitter-textobjects",
+        "tokyonight.nvim": "tokyonight.nvim",
+        "ts-comments.nvim": "ts-comments.nvim"
       }
     },
     "systems": {
@@ -115,6 +185,22 @@
       "original": {
         "owner": "folke",
         "repo": "tokyonight.nvim",
+        "type": "github"
+      }
+    },
+    "ts-comments.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1782720575,
+        "narHash": "sha256-uqFE+EXQt6+UqwxVRdgk7oY05DPo5sV1q9KvvE1xVGk=",
+        "owner": "folke",
+        "repo": "ts-comments.nvim",
+        "rev": "a59d6092213447450191122c9346f309161504cb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "ts-comments.nvim",
         "type": "github"
       }
     }

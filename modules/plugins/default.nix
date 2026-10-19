@@ -4,5 +4,11 @@
   imports = [
     ./lz-n.nix
     ./tokyonight.nix
+    ./treesitter.nix
+    ./treesitter-textobjects.nix
+    ./ts-comments.nix
+    ./mini-ai.nix
+    ./mini-pairs.nix
+    ./flash.nix
   ];
 }
