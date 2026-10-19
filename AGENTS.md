@@ -2,6 +2,10 @@
 
 Nixvim Neovim configuration.
 
+## Adding a plugin
+
+Adding or changing a plugin module: read `HANDOVER.md` first (lz.n lazy loading, dependencies, gotchas) and follow the pattern in `modules/plugins/default.nix`.
+
 ## Agent skills
 
 ### Issue tracker

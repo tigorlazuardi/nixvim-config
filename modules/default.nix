@@ -22,12 +22,33 @@ inputs:
     ./clipboard.nix
     ./git.nix
     ./neovide.nix
+    ./plugins
   ];
+
+  # Granular pinning (ADR-0001): build a plugin from its own flake input.
+  # `name` is the input name AND the pack/opt folder (pname) lz.n loads.
+  # `extra` merges into buildVimPlugin (nvimSkipModules, checkInputs, ...);
+  # nixpkgs vimPlugins overrides don't apply to our own inputs, so mirror
+  # the relevant ones per plugin.
+  _module.args.mkPlugin =
+    name: extra:
+    pkgs.vimUtils.buildVimPlugin (
+      {
+        pname = name;
+        version = inputs.${name}.shortRev or inputs.${name}.lastModifiedDate or "dirty";
+        src = inputs.${name};
+      }
+      // extra
+    );
 
   programs.nixvim = {
     enable = lib.mkDefault true;
     nixpkgs.pkgs = lib.mkDefault pkgs;
     defaultEditor = lib.mkDefault true;
+    # Bake the generated init into the wrapped nvim package itself, so
+    # packages.default is self-contained (init otherwise lands in the
+    # consumer's xdg.configFile only).
+    wrapRc = lib.mkDefault true;
 
     extraPackages = lib.mkDefault (with pkgs; [
       ripgrep
@@ -36,7 +57,8 @@ inputs:
     ]);
 
     # Structural (not mkDefault): leader breaks subtly without the Space
-    # NOP, and autocmds index _M unconditionally.
+    # NOP, autocmds index _M unconditionally, and autoGroups must exist
+    # before any autocmd references them (init.lua evaluates in file order).
     extraConfigLuaPre = ''
       -- Shared platform-info table; neovide.nix sets _M.platform under
       -- Neovide. Pre-create so `_M.platform or "nvim"` never indexes nil.
@@ -44,6 +66,12 @@ inputs:
 
       -- Space key has to be set to NOP for setting leader key to space to work.
       vim.keymap.set("", "<Space>", "<Nop>", {})
+
+      -- Pre-create autoGroups here: nixvim emits group definitions after
+      -- autocmds in init.lua, but nvim_create_autocmd validates eagerly.
+      for _, group in ipairs({ "CheckTime", "ResizeSplits", "LastLoc", "CloseWithQ", "ManUnlisted", "WrapText", "AutoCreateDir", "WindowTitle" }) do
+        vim.api.nvim_create_augroup(group, { clear = false })
+      end
     '';
 
     globals = lib.mkDefault {
