@@ -17,7 +17,9 @@
       if vim.g.neovide then
         _M.platform = "Neovide"
 
-        local font = "JetBrainsMono Nerd Font"
+        -- Fallback to Symbols Nerd Font to avoid glyph-patching jankiness
+        -- (Neovide supports comma-separated fallback fonts)
+        local font = "JetBrainsMono Nerd Font,Symbols Nerd Font"
 
         local font_size = vim.o.lines < 60 and 11 or 12
 
