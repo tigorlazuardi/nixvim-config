@@ -8,7 +8,8 @@
   # Neovide GUI + the font its block below uses; list stays plain so consumers append.
   home.packages = [
     pkgs.neovide
-    pkgs.nerd-fonts.jetbrains-mono
+    pkgs.jetbrains-mono
+    pkgs.nerd-fonts.symbols-only
   ];
   fonts.fontconfig.enable = lib.mkDefault true;
 
@@ -19,7 +20,7 @@
 
         -- Fallback to Symbols Nerd Font to avoid glyph-patching jankiness
         -- (Neovide supports comma-separated fallback fonts)
-        local font = "JetBrainsMono Nerd Font,Symbols Nerd Font"
+        local font = "JetBrains Mono,Symbols Nerd Font"
 
         local font_size = vim.o.lines < 60 and 11 or 12
 
