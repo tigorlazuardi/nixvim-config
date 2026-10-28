@@ -178,5 +178,5 @@ imports = [ inputs.nixvim-config.homeManagerModules.default ];
 - Binary neovim = `config.programs.nixvim.build.package` (init sudah ter-bake via `wrapRc`).
 - Update satu plugin: `nix flake update <nama-input>` di repo ini lalu push, lalu `nix flake update nixvim-config` di consumer.
 - Jangan pakai bersama `programs.neovim` atau `inputs.nix-neovim-config.homeModules.default` pada user yang sama (bentrok `EDITOR`/`nvim`).
-- Neovide + font JetBrains Mono ikut terpasang lewat `home.packages` dan `fonts.fontconfig.enable` di modul ini.
+- Neovide + font (JetBrains Mono, Symbols Nerd Font) ikut terpasang lewat `home.packages` dan `fonts.fontconfig.enable`. Host headless matikan dengan `programs.nixvim-config.gui.enable = false;` (default `true`).
 - Verifikasi di repo ini: `nix flake check` dan `nix build .#default` lalu `result/bin/nvim`. Check hidup di samping modulnya: `modules/**/<nama>.check.nix` (bentuk `{ pkgs, nvim }: pkgs.runCommand ...`) otomatis jadi `checks.<system>.nvim-<nama>`. Plugin baru: `<nama>.nix` + `<nama>.check.nix` bersebelahan.

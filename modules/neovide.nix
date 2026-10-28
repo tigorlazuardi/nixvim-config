@@ -1,19 +1,32 @@
 # Neovide GUI tweaks.
 {
+  config,
   lib,
   pkgs,
   ...
 }:
 {
+  options.programs.nixvim-config.gui.enable = lib.mkOption {
+    type = lib.types.bool;
+    default = true;
+    description = ''
+      Install Neovide and its fonts (JetBrains Mono, Symbols Nerd Font) via
+      home.packages. Set to false on headless hosts to keep the closure small.
+      The Neovide Lua tweaks stay (they only run under Neovide).
+    '';
+  };
+
   # Neovide GUI + the font its block below uses; list stays plain so consumers append.
-  home.packages = [
+  config.home.packages = lib.mkIf config.programs.nixvim-config.gui.enable [
     pkgs.neovide
     pkgs.jetbrains-mono
     pkgs.nerd-fonts.symbols-only
   ];
-  fonts.fontconfig.enable = lib.mkDefault true;
+  config.fonts.fontconfig.enable = lib.mkIf config.programs.nixvim-config.gui.enable (
+    lib.mkDefault true
+  );
 
-  programs.nixvim.extraConfigLua = # lua
+  config.programs.nixvim.extraConfigLua = # lua
     ''
       if vim.g.neovide then
         _M.platform = "Neovide"
