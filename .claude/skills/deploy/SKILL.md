@@ -1,7 +1,6 @@
 ---
 name: deploy
 description: Deploy nixvim-config to the homelab host. Use when the user says "deploy" — notifies the homelab agent over the relay tools to update the nixvim-config flake input and switch.
-disable-model-invocation: true
 ---
 
 # Deploy
