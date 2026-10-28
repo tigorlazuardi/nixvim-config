@@ -90,6 +90,10 @@
           local buf_id = args.data.buf_id
           vim.keymap.set("n", "g.", toggle_dotfiles, { buffer = buf_id, desc = "Toggle hidden files" })
           vim.keymap.set("n", "gc", files_set_cwd, { buffer = buf_id, desc = "Set cwd" })
+          -- <CR>: directory -> enter, file -> open and close explorer.
+          vim.keymap.set("n", "<CR>", function()
+            require("mini.files").go_in({ close_on_file = true })
+          end, { buffer = buf_id, desc = "Enter dir / open file and close" })
           map_split(buf_id, "<C-w>s", "horizontal", false)
           map_split(buf_id, "<C-w>v", "vertical", false)
           map_split(buf_id, "<C-w>S", "horizontal", true)
