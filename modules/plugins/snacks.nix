@@ -145,11 +145,9 @@ in
     package = mkPlugin "snacks.nvim" {
       # Backend modules import lazily (notify/snacks views, docs, profiler);
       # nixvim's static require-check cannot resolve them.
-      nvimSkipModules = [
-        "snacks.picker.util.db"
-        # Bundled trouble.nvim extension; trouble arrives in #13.
-        "trouble.sources.profiler"
-      ];
+      nvimSkipModules = [ "snacks.picker.util.db" ];
+      # Bundled trouble extension (trouble.sources.profiler) needs trouble.
+      dependencies = [ (mkPlugin "trouble.nvim" { nvimSkipModules = [ "trouble.docs" ]; }) ];
     };
     lazyLoad.enable = lib.mkDefault false; # start: host of lightweight QoL modules
     settings = lib.mkDefault {

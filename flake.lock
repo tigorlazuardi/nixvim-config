@@ -511,7 +511,9 @@
         "snacks.nvim": "snacks.nvim",
         "telescope.nvim": "telescope.nvim",
         "tiny-inline-diagnostic.nvim": "tiny-inline-diagnostic.nvim",
+        "todo-comments.nvim": "todo-comments.nvim",
         "tokyonight.nvim": "tokyonight.nvim",
+        "trouble.nvim": "trouble.nvim",
         "ts-comments.nvim": "ts-comments.nvim",
         "which-key.nvim": "which-key.nvim"
       }
@@ -581,6 +583,22 @@
         "type": "github"
       }
     },
+    "todo-comments.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1762764922,
+        "narHash": "sha256-VGeIRfwQsHgSO89Pmn6yIP9na1F6mmYZx0HDLe9IKCQ=",
+        "owner": "folke",
+        "repo": "todo-comments.nvim",
+        "rev": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "todo-comments.nvim",
+        "type": "github"
+      }
+    },
     "tokyonight.nvim": {
       "flake": false,
       "locked": {
@@ -594,6 +612,22 @@
       "original": {
         "owner": "folke",
         "repo": "tokyonight.nvim",
+        "type": "github"
+      }
+    },
+    "trouble.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1761919011,
+        "narHash": "sha256-6U/KWjvRMxWIxcsI2xNU/ltfgkaFG4E3BdzC7brK/DI=",
+        "owner": "folke",
+        "repo": "trouble.nvim",
+        "rev": "bd67efe408d4816e25e8491cc5ad4088e708a69a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "trouble.nvim",
         "type": "github"
       }
     },

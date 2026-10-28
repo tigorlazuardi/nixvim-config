@@ -32,5 +32,6 @@
     ./neotest.nix
     ./web.nix
     ./lazydev.nix
+    ./trouble.nix
   ];
 }
