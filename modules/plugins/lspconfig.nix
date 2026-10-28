@@ -107,11 +107,7 @@ in
           lspBufAction = "code_action";
           options.desc = "Code Action";
         }
-        {
-          key = "<leader>cr";
-          lspBufAction = "rename";
-          options.desc = "Rename";
-        }
+        # <leader>cr (rename) lives in helper-edit.nix (inc-rename).
         {
           key = "<leader>cA";
           action = raw ''

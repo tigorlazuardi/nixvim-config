@@ -80,6 +80,22 @@
         "type": "github"
       }
     },
+    "dial.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1766327587,
+        "narHash": "sha256-J2HU746yz8iHos7od5kIdEUd4/bgAPGwC38fLZ4gK+E=",
+        "owner": "monaqa",
+        "repo": "dial.nvim",
+        "rev": "f2634758455cfa52a8acea6f142dcd6271a1bf57",
+        "type": "github"
+      },
+      "original": {
+        "owner": "monaqa",
+        "repo": "dial.nvim",
+        "type": "github"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
@@ -165,6 +181,22 @@
         "type": "github"
       }
     },
+    "grug-far.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1792621172,
+        "narHash": "sha256-sSUaiGSMKE8UcTybt/zFZd5tOPjK8gXVxyI/LEgfnBk=",
+        "owner": "MagicDuck",
+        "repo": "grug-far.nvim",
+        "rev": "91b7e58b6ffc6ddad5acb7a7c1df21257724449e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "MagicDuck",
+        "repo": "grug-far.nvim",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -182,6 +214,22 @@
       "original": {
         "owner": "nix-community",
         "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "inc-rename.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1785442018,
+        "narHash": "sha256-EWSmklr8kuv/XlOemHxCh9HGjoHdNK1e2s9gkMZvHZU=",
+        "owner": "smjonas",
+        "repo": "inc-rename.nvim",
+        "rev": "ddff8bd3eccedf043bd73f5bf89cf90d2d6d8105",
+        "type": "github"
+      },
+      "original": {
+        "owner": "smjonas",
+        "repo": "inc-rename.nvim",
         "type": "github"
       }
     },
@@ -533,11 +581,14 @@
         "catppuccin": "catppuccin",
         "conform.nvim": "conform.nvim",
         "crane": "crane",
+        "dial.nvim": "dial.nvim",
         "flash.nvim": "flash.nvim",
         "friendly-snippets": "friendly-snippets",
         "gitsigns.nvim": "gitsigns.nvim",
         "goimpl.nvim": "goimpl.nvim",
+        "grug-far.nvim": "grug-far.nvim",
         "home-manager": "home-manager",
+        "inc-rename.nvim": "inc-rename.nvim",
         "indent-blankline.nvim": "indent-blankline.nvim",
         "lazydev.nvim": "lazydev.nvim",
         "lualine.nvim": "lualine.nvim",
@@ -566,7 +617,8 @@
         "tokyonight.nvim": "tokyonight.nvim",
         "trouble.nvim": "trouble.nvim",
         "ts-comments.nvim": "ts-comments.nvim",
-        "which-key.nvim": "which-key.nvim"
+        "which-key.nvim": "which-key.nvim",
+        "yanky.nvim": "yanky.nvim"
       }
     },
     "snacks.nvim": {
@@ -711,6 +763,22 @@
       "original": {
         "owner": "folke",
         "repo": "which-key.nvim",
+        "type": "github"
+      }
+    },
+    "yanky.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1791302964,
+        "narHash": "sha256-gKyzf7r6ryG8YSEQuy0usvG0wc1Er5KGw9lUlCi0JkU=",
+        "owner": "gbprod",
+        "repo": "yanky.nvim",
+        "rev": "adcabd8512bead30184916fa9277e73c021ef099",
+        "type": "github"
+      },
+      "original": {
+        "owner": "gbprod",
+        "repo": "yanky.nvim",
         "type": "github"
       }
     }

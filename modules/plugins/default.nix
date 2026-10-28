@@ -35,5 +35,6 @@
     ./trouble.nix
     ./gitsigns.nix
     ./session.nix
+    ./helper-edit.nix
   ];
 }
