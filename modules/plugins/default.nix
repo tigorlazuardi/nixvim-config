@@ -37,5 +37,6 @@
     ./session.nix
     ./helper-edit.nix
     ./data-formats.nix
+    ./docker-markdown.nix
   ];
 }

@@ -590,6 +590,22 @@
         "type": "github"
       }
     },
+    "render-markdown.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1791662337,
+        "narHash": "sha256-tjemDTY7HBc9RHPFrm0tcQLrc0zRe2REA4Rx6VMshn4=",
+        "owner": "MeanderingProgrammer",
+        "repo": "render-markdown.nvim",
+        "rev": "8e8795368391036643b622875a6da6a51bcd33f4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "MeanderingProgrammer",
+        "repo": "render-markdown.nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "SchemaStore.nvim": "SchemaStore.nvim",
@@ -627,6 +643,7 @@
         "nvim-treesitter-textobjects": "nvim-treesitter-textobjects",
         "persistence.nvim": "persistence.nvim",
         "plenary.nvim": "plenary.nvim",
+        "render-markdown.nvim": "render-markdown.nvim",
         "snacks.nvim": "snacks.nvim",
         "telescope.nvim": "telescope.nvim",
         "tiny-inline-diagnostic.nvim": "tiny-inline-diagnostic.nvim",
