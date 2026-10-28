@@ -175,4 +175,4 @@ imports = [ inputs.nixvim-config.homeManagerModules.default ];
 - Update satu plugin: `nix flake update <nama-input>` di repo ini lalu push, lalu `nix flake update nixvim-config` di consumer.
 - Jangan pakai bersama `programs.neovim` atau `inputs.nix-neovim-config.homeModules.default` pada user yang sama (bentrok `EDITOR`/`nvim`).
 - Neovide + font JetBrains Mono ikut terpasang lewat `home.packages` dan `fonts.fontconfig.enable` di modul ini.
-- Verifikasi di repo ini: `nix flake check` (21 check) dan `nix build .#default` lalu `result/bin/nvim`.
+- Verifikasi di repo ini: `nix flake check` (satu check per file di `checks/`, nama attr = nama file; tambah plugin baru = tambah `checks/nvim-<nama>.nix` berbentuk `{ pkgs, nvim }: pkgs.runCommand ...`) dan `nix build .#default` lalu `result/bin/nvim`.
