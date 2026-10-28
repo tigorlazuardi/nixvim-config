@@ -27,5 +27,6 @@
     ./friendly-snippets.nix
     ./conform.nix
     ./nvim-lint.nix
+    ./typescript.nix
   ];
 }
