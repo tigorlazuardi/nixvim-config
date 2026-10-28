@@ -445,6 +445,22 @@
         "type": "github"
       }
     },
+    "nvim-sops": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1769726770,
+        "narHash": "sha256-PkCZZuigHAAlGNcVD/bBTkGyZs9e3tgmnaDuPpKrBKM=",
+        "owner": "prismatic-koi",
+        "repo": "nvim-sops",
+        "rev": "1791eec21e78c9736ae504f02712a2f509c69b2c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "prismatic-koi",
+        "repo": "nvim-sops",
+        "type": "github"
+      }
+    },
     "nvim-treesitter-context": {
       "flake": false,
       "locked": {
@@ -475,6 +491,22 @@
         "owner": "nvim-treesitter",
         "ref": "main",
         "repo": "nvim-treesitter-textobjects",
+        "type": "github"
+      }
+    },
+    "persistence.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1761664494,
+        "narHash": "sha256-ACuDEp4MNiP2X2LnsEjVWmajedXdCQ9gg/EK55YF7uM=",
+        "owner": "folke",
+        "repo": "persistence.nvim",
+        "rev": "b20b2a7887bd39c1a356980b45e03250f3dce49c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "persistence.nvim",
         "type": "github"
       }
     },
@@ -522,8 +554,10 @@
         "nvim-lint": "nvim-lint",
         "nvim-lspconfig": "nvim-lspconfig",
         "nvim-nio": "nvim-nio",
+        "nvim-sops": "nvim-sops",
         "nvim-treesitter-context": "nvim-treesitter-context",
         "nvim-treesitter-textobjects": "nvim-treesitter-textobjects",
+        "persistence.nvim": "persistence.nvim",
         "plenary.nvim": "plenary.nvim",
         "snacks.nvim": "snacks.nvim",
         "telescope.nvim": "telescope.nvim",

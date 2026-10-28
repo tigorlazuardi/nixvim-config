@@ -34,5 +34,6 @@
     ./lazydev.nix
     ./trouble.nix
     ./gitsigns.nix
+    ./session.nix
   ];
 }
