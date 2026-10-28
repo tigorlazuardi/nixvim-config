@@ -22,5 +22,6 @@
     ./tiny-inline-diagnostic.nix
     ./snacks.nix
     ./mini-files.nix
+    ./lspconfig.nix
   ];
 }

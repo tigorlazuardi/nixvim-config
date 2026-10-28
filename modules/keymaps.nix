@@ -1,4 +1,4 @@
-# Global keymaps + LSP default-mapping cleanup + diagnostic jump keys.
+# Global keymaps + LSP default-mapping cleanup (]] [[ live in plugins/lspconfig.nix).
 #
 # `keymaps`/`autoCmd` are lists: left un-mkDefault on purpose. Lists from
 # different modules with equal priority concatenate, so a consumer adding
@@ -185,45 +185,5 @@
           desc = "Switch to Last Buffer";
         })
       ];
-    autoCmd = [
-      {
-        event = "DiagnosticChanged";
-        group = "DiagnosticChangedKeys";
-        callback.__raw = ''
-          function(args)
-            local buf = args.buf
-            vim.keymap.set("n", "]]", function()
-                local severityError = { severity = vim.diagnostic.severity.ERROR }
-                local errorDianostic = vim.diagnostic.get_next(severityError)
-                if errorDiagnostic then
-                  vim.diagnostic.jump({ diagnostic = errorDiagnostic })
-                  return
-                end
-                local severityWarning = { severity = vim.diagnostic.severity.WARNING }
-                local warningDiagnostic = vim.diagnostic.get_next(severityWarning)
-                if warningDiagnostic then
-                  vim.diagnostic.jump({ diagnostic = warningDiagnostic })
-                  return
-                end
-            end, { buffer = buf, desc = "Next Diagnostic (Error/Warning)" })
-            vim.keymap.set("n", "[[", function()
-                local severityError = { severity = vim.diagnostic.severity.ERROR }
-                local errorDianostic = vim.diagnostic.get_prev(severityError)
-                if errorDiagnostic then
-                  vim.diagnostic.jump({ diagnostic = errorDiagnostic })
-                  return
-                end
-                local severityWarning = { severity = vim.diagnostic.severity.WARNING }
-                local warningDiagnostic = vim.diagnostic.get_prev(severityWarning)
-                if warningDiagnostic then
-                  vim.diagnostic.jump({ diagnostic = warningDiagnostic })
-                  return
-                end
-            end, { buffer = buf, desc = "Previous Diagnostic (Error/Warning)" })
-          end
-        '';
-      }
-    ];
-    autoGroups."DiagnosticChangedKeys".clear = true;
   };
 }
