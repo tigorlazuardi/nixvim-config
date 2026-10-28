@@ -329,6 +329,22 @@
         "type": "github"
       }
     },
+    "mini.hipatterns": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1792496174,
+        "narHash": "sha256-WtJiGjQ4yRjnGSfDtnM2clMnBheIOw8dUSXG7kvIKaM=",
+        "owner": "nvim-mini",
+        "repo": "mini.hipatterns",
+        "rev": "247c0173579a29af60f25f00671a75c57090be9c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-mini",
+        "repo": "mini.hipatterns",
+        "type": "github"
+      }
+    },
     "mini.icons": {
       "flake": false,
       "locked": {
@@ -627,6 +643,7 @@
         "lualine.nvim": "lualine.nvim",
         "mini.ai": "mini.ai",
         "mini.files": "mini.files",
+        "mini.hipatterns": "mini.hipatterns",
         "mini.icons": "mini.icons",
         "mini.pairs": "mini.pairs",
         "neotest": "neotest",
