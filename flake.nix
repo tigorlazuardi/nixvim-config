@@ -240,13 +240,21 @@
         let
           pkgs = nixpkgs.legacyPackages.${system};
           nvim = self.packages.${system}.default;
-          # One behaviour check per file in ./checks (attr name = file name).
-          files = builtins.attrNames (builtins.readDir ./checks);
+          # Behaviour checks live next to the module they test:
+          # modules/**/<name>.check.nix -> checks.<system>.nvim-<name>
+          # (shape: { pkgs, nvim }: pkgs.runCommand ...).
+          files = builtins.filter (nixpkgs.lib.hasSuffix ".check.nix") (
+            map toString (nixpkgs.lib.filesystem.listFilesRecursive ./modules)
+          );
         in
         builtins.listToAttrs (
           map (f: {
-            name = nixpkgs.lib.removeSuffix ".nix" f;
-            value = import ./checks/${f} { inherit pkgs nvim; };
+            name =
+              let
+                n = nixpkgs.lib.removeSuffix ".check.nix" (baseNameOf f);
+              in
+              if nixpkgs.lib.hasPrefix "nvim-" n then n else "nvim-" + n;
+            value = import f { inherit pkgs nvim; };
           }) files
         )
       );

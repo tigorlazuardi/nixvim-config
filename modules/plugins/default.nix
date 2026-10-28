@@ -1,5 +1,6 @@
 # One file per plugin. Add a plugin: (1) flake input in flake.nix,
-# (2) modules/plugins/<name>.nix, (3) list it here.
+# (2) modules/plugins/<name>.nix + <name>.check.nix (behaviour check, picked
+# up automatically by flake.nix), (3) list the module here.
 {
   imports = [
     ./lz-n.nix
