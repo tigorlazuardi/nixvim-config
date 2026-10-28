@@ -36,5 +36,6 @@
     ./gitsigns.nix
     ./session.nix
     ./helper-edit.nix
+    ./data-formats.nix
   ];
 }

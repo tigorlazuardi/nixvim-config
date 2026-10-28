@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "SchemaStore.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1793203246,
+        "narHash": "sha256-5lThIT0+v9J3P9GLLNi9P5Cd0xv6DgS8+x0eIAE8b/I=",
+        "owner": "b0o",
+        "repo": "SchemaStore.nvim",
+        "rev": "ac48ad6b22920e161f82020f2033ca355ec318c9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "b0o",
+        "repo": "SchemaStore.nvim",
+        "type": "github"
+      }
+    },
     "blink.cmp": {
       "flake": false,
       "locked": {
@@ -576,6 +592,7 @@
     },
     "root": {
       "inputs": {
+        "SchemaStore.nvim": "SchemaStore.nvim",
         "blink.cmp": "blink.cmp",
         "bufferline.nvim": "bufferline.nvim",
         "catppuccin": "catppuccin",
