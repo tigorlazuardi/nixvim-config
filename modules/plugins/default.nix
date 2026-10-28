@@ -33,5 +33,6 @@
     ./web.nix
     ./lazydev.nix
     ./trouble.nix
+    ./gitsigns.nix
   ];
 }
