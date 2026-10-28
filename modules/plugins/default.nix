@@ -26,5 +26,6 @@
     ./blink-cmp.nix
     ./friendly-snippets.nix
     ./conform.nix
+    ./nvim-lint.nix
   ];
 }

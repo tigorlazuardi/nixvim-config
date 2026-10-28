@@ -317,6 +317,22 @@
         "type": "github"
       }
     },
+    "nvim-lint": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1791386572,
+        "narHash": "sha256-0efsCxMeYu1Wp/lhWFV1MWTRsa9aW25YQIU1rccezBM=",
+        "owner": "mfussenegger",
+        "repo": "nvim-lint",
+        "rev": "f6230a5c06ba59e6059c14637f1dbe29a7978b9b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mfussenegger",
+        "repo": "nvim-lint",
+        "type": "github"
+      }
+    },
     "nvim-lspconfig": {
       "flake": false,
       "locked": {
@@ -386,6 +402,7 @@
         "nixvim": "nixvim",
         "noice.nvim": "noice.nvim",
         "nui.nvim": "nui.nvim",
+        "nvim-lint": "nvim-lint",
         "nvim-lspconfig": "nvim-lspconfig",
         "nvim-treesitter-context": "nvim-treesitter-context",
         "nvim-treesitter-textobjects": "nvim-treesitter-textobjects",
