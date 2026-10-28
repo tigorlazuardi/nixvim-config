@@ -45,17 +45,17 @@
         # Add undo breakpoints on typing , . ;
         {
           key = ",";
-          action = ",<c-g>U";
+          action = ",<c-g>u";
           mode = "i";
         }
         {
           key = ".";
-          action = ".<c-g>U";
+          action = ".<c-g>u";
           mode = "i";
         }
         {
           key = ";";
-          action = ";<c-g>U";
+          action = ";<c-g>u";
           mode = "i";
         }
         {
@@ -63,6 +63,7 @@
           action.__raw = ''
             function()
               vim.cmd("noh")
+              if vim.snippet.active() then vim.snippet.stop() end
               return "<esc>"
             end
           '';

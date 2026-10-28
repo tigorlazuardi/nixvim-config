@@ -15,8 +15,15 @@
     WrapText = { };
     AutoCreateDir = { };
     WindowTitle = { };
+    HighlightYank = { };
   };
   programs.nixvim.autoCmd = [
+    {
+      event = [ "TextYankPost" ];
+      callback.__raw = "function() (vim.hl or vim.highlight).on_yank() end";
+      group = "HighlightYank";
+      desc = "Highlight on yank";
+    }
     {
       event = [
         "FocusGained"
@@ -140,10 +147,11 @@
       callback.__raw = ''
         function()
             vim.opt_local.wrap = true
+            vim.opt_local.spell = true
         end
       '';
       group = "WrapText";
-      desc = "enable wrap for text files";
+      desc = "enable wrap and spell for text files";
     }
     {
       event = [ "BufWritePre" ];

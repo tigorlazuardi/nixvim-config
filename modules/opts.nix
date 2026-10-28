@@ -1,21 +1,24 @@
 # Base editor options, ported from the dotfiles base config.
-# Attrset: wrapped in mkDefault so consumers win per-key.
+# mkDefault per key (lib.mapAttrs below): wrapping the whole attrset would be
+# dropped as soon as another module sets any `opts.*` key at normal priority
+# (treesitter.nix does), silently disabling every option here.
 {
   lib,
   ...
 }:
 {
-  programs.nixvim.opts = lib.mkDefault {
+  programs.nixvim.opts = lib.mapAttrs (_: lib.mkDefault) {
     # https://www.lazyvim.org/configuration/general
     autowrite = true;
     clipboard = "unnamedplus";
     # conceallevel = 2;
+    completeopt = "menu,menuone,noselect";
     confirm = true;
     cursorline = true;
     expandtab = true;
     fillchars = {
-      foldopen = "";
-      foldclose = "";
+      foldopen = builtins.fromJSON ''"\uf078"'';
+      foldclose = builtins.fromJSON ''"\uf054"'';
       fold = " ";
       foldsep = " ";
       diff = "╱";
@@ -24,6 +27,8 @@
     formatoptions = "jcroqlnt";
     grepformat = "%f:%l:%c:%m";
     grepprg = "rg --vimgrep";
+    foldlevel = 99;
+    foldtext = "";
     ignorecase = true;
     inccommand = "nosplit";
     jumpoptions = "view";
@@ -34,6 +39,8 @@
     number = true;
     pumblend = 10;
     pumheight = 10;
+    relativenumber = true;
+    ruler = false;
     scrolloff = 5;
     sessionoptions = [
       "buffers"

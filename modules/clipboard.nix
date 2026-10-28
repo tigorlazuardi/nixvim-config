@@ -1,4 +1,4 @@
-# OSC 52 clipboard over SSH.
+# OSC 52 clipboard over SSH or inside Herdr.
 # String-valued option: concatenated, so safe to leave un-mkDefault —
 # a consumer adding its own prelude appends after this one.
 {
@@ -10,7 +10,7 @@
   # Paste is not supported by using 'p' or 'P' in normal mode over ssh,
   # but can use CTRL+SHIFT+V in insert mode to paste the clipboard content.
   programs.nixvim.extraConfigLuaPre = ''
-    if vim.env.SSH_TTY then
+    if vim.env.SSH_TTY or vim.env.SSH_CLIENT or vim.env.HERDR_ENV then
       local function paste()
         return {
           vim.fn.split(vim.fn.getreg("", 1), "\n"),

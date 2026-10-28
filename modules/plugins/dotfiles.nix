@@ -51,7 +51,11 @@ in
         ".*/mako/config" = lib.mkDefault "dosini";
         ".*/kitty/.+%.conf" = lib.mkDefault "kitty";
         ".*/hypr/.+%.conf" = lib.mkDefault "hyprlang";
-        "%.env%.[%w_.-]+" = lib.mkDefault "sh";
+        # priority > 0: nvim 0.12 builtin ^%.env%. -> "env" ties at default 0.
+        "%.env%.[%w_.-]+" = lib.mkDefault [
+          "sh"
+          { priority = 10; }
+        ];
       };
     };
     extraConfigLuaPost = ''

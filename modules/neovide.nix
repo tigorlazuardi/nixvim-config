@@ -28,6 +28,7 @@
         vim.g.neovide_opacity = 0.8
         vim.g.transparency = 0.8
         vim.g.neovide_window_blurred = true
+        vim.g.experimental_layer_grouping = true
 
         vim.keymap.set("n", "<c-->", function()
           font_size = font_size - 1
@@ -40,13 +41,6 @@
           vim.o.guifont = font .. ":h" .. font_size
           vim.notify("Font Set: " .. font .. ":h" .. font_size)
         end, { desc = "Increase font size" })
-
-        vim.keymap.set(
-          { "n", "v", "s", "x", "o", "i", "l", "c", "t" },
-          "<C-S-v>",
-          function() vim.api.nvim_paste(vim.fn.getreg "+", true, -1) end,
-          { noremap = true, silent = true }
-        )
       end
     '';
 }
