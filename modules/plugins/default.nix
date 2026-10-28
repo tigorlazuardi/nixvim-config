@@ -23,5 +23,7 @@
     ./snacks.nix
     ./mini-files.nix
     ./lspconfig.nix
+    ./blink-cmp.nix
+    ./friendly-snippets.nix
   ];
 }

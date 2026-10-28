@@ -41,6 +41,8 @@ inputs:
       // extra
     );
 
+  _module.args.craneLib = inputs.crane.mkLib pkgs;
+
   programs.nixvim = {
     enable = lib.mkDefault true;
     nixpkgs.pkgs = lib.mkDefault pkgs;

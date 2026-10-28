@@ -98,6 +98,17 @@
       url = "github:neovim/nvim-lspconfig";
       flake = false;
     };
+    # Nix-only library (no plugins): splits Rust deps into their own
+    # derivation so a plugin bump does not recompile every crate.
+    crane.url = "github:ipetkov/crane";
+    "blink.cmp" = {
+      url = "github:saghen/blink.cmp/v1"; # v2 (main) needs blink.lib; v1 = LazyVim/nixpkgs line
+      flake = false;
+    };
+    "friendly-snippets" = {
+      url = "github:rafamadriz/friendly-snippets";
+      flake = false;
+    };
   };
 
   outputs =
@@ -261,6 +272,7 @@
                 printf 'FROM scratch\n' > Dockerfile
                 cat > probe.lua <<'LUA'
                 local function ok(c, m) if not c then error("FAIL: " .. m) end end
+                local function main()
                 vim.cmd("doautocmd User DeferredUIEnter")
                 vim.cmd("edit t.nix")
                 ok(vim.wait(8000, function() return #vim.lsp.get_clients({ bufnr = 0, name = "nil_ls" }) > 0 end, 100), "nil_ls attach")
@@ -288,11 +300,62 @@
                 vim.cmd("silent! edit! Dockerfile")
                 ok(not vim.diagnostic.is_enabled({ bufnr = 0 }), "diag off dockerfile")
                 io.stdout:write("LSP_OK\n")
-                vim.cmd("qa!")
+                end
+                local good, err = xpcall(main, debug.traceback)
+                if not good then io.stdout:write(tostring(err) .. "\n") end
+                vim.cmd(good and "qa!" or "cquit")
                 LUA
                 res=$(timeout 60 "$nvim/bin/nvim" --headless -S probe.lua 2>&1)
                 printf '%s\n' "$res"
                 printf '%s\n' "$res" | grep -q LSP_OK
+                touch $out
+              '';
+          nvim-cmp =
+            pkgs.runCommand "nvim-cmp-behaviour"
+              {
+                nvim = self.packages.${system}.default;
+              }
+              ''
+                export HOME=$(mktemp -d)
+                cd $HOME
+                printf 'builtins.' > t.nix
+                printf 'for' > t.lua
+                cat > probe.lua <<'LUA'
+                local function ok(c, m) if not c then error("FAIL: " .. m) end end
+                local function main()
+                local function shown(opts)
+                  local b = require("blink.cmp")
+                  vim.api.nvim_feedkeys("A", "nx", false)
+                  b.show(opts)
+                  local v = vim.wait(10000, function() return b.is_visible() end, 100)
+                  local items = v and require("blink.cmp.completion.list").items or {}
+                  b.hide()
+                  vim.api.nvim_feedkeys(vim.keycode("<Esc>"), "nx", false)
+                  return v, items
+                end
+                vim.cmd("doautocmd User DeferredUIEnter")
+                -- packadd runs blink's plugin/ file (requires the main module for
+                -- LSP capabilities); setup itself must wait for InsertEnter.
+                ok(package.loaded["blink.cmp.completion.list"] == nil, "blink setup must stay lazy before InsertEnter")
+                vim.cmd("edit t.nix")
+                ok(vim.wait(8000, function() return #vim.lsp.get_clients({ bufnr = 0, name = "nil_ls" }) > 0 end, 100), "nil_ls attach")
+                ok(vim.lsp.get_clients({ bufnr = 0 })[1].config.capabilities.textDocument.completion.completionItem.snippetSupport, "snippet capability reached nil_ls")
+                local v, items = shown()
+                ok(v and #items > 0 and items[1].source_id == "lsp", "LSP completion in .nix")
+                ok(package.loaded["blink.cmp.completion.list"] ~= nil, "blink setup ran on InsertEnter")
+                ok(vim.wait(8000, function() return require("blink.cmp.fuzzy").implementation_type == "rust" end, 100), "rust fuzzy lib in use")
+                vim.cmd("edit! t.lua")
+                local v2, items2 = shown({ providers = { "snippets" } })
+                ok(v2 and #items2 > 0, "friendly-snippets items in lua")
+                io.stdout:write("CMP_OK\n")
+                end
+                local good, err = xpcall(main, debug.traceback)
+                if not good then io.stdout:write(tostring(err) .. "\n") end
+                vim.cmd(good and "qa!" or "cquit")
+                LUA
+                res=$(timeout 90 "$nvim/bin/nvim" --headless -S probe.lua 2>&1)
+                printf '%s\n' "$res"
+                printf '%s\n' "$res" | grep -q CMP_OK
                 touch $out
               '';
           nvim-treesitter =
