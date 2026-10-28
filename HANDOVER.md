@@ -77,8 +77,12 @@ tidak ada — tangani eksplisit.
 ### Pinning / lockfile
 
 - Plugin datang dari **nixpkgs** (`vimPlugins.*`) — ter-pin via `flake.lock`.
-- Plugin di luar nixpkgs: jadi flake input sendiri (satu input per plugin) dan
-  dilempar via `extraPlugins` / `plugins.<name>.package` — semua masuk
+- Plugin di luar nixpkgs: jadi flake input sendiri (satu input per plugin),
+  ditulis di `modules/plugins/<nama>.input.nix` (`flake-file.inputs.*`) di
+  samping modulnya. `flake.nix` itu **hasil generate** (flake-file, jangan
+  diedit); setelah ubah input regenerate:
+  `nix-shell https://github.com/denful/flake-file/archive/main.tar.gz -A flake-file.sh --run bootstrap`
+  lalu `git add -A`. Input dilempar via `extraPlugins` / `plugins.<name>.package` — semua masuk
   `flake.lock`.
 - Tidak ada lockfile runtime. Reproducibility = `flake.lock`.
 

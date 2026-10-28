@@ -1,4 +1,6 @@
-# One file per plugin. Add a plugin: (1) flake input in flake.nix,
+# One file per plugin. Add a plugin: (1) modules/plugins/<name>.input.nix
+# (flake-file.inputs.*; flake.nix is GENERATED, never edit it - regenerate:
+# nix-shell https://github.com/denful/flake-file/archive/main.tar.gz -A flake-file.sh --run bootstrap),
 # (2) modules/plugins/<name>.nix + <name>.check.nix (behaviour check, picked
 # up automatically by flake.nix), (3) list the module here.
 {
