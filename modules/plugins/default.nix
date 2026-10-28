@@ -30,5 +30,6 @@
     ./typescript.nix
     ./go.nix
     ./neotest.nix
+    ./web.nix
   ];
 }

@@ -18,6 +18,7 @@ in
       grammarPackages = lib.mkDefault (
         with ts;
         [
+          astro
           bash
           c
           css
@@ -52,6 +53,7 @@ in
           rasi
           regex
           toml
+          svelte
           tsx
           typescript
           vim

@@ -1,8 +1,7 @@
 # Messages/cmdline/popupmenu UI. lsp.override moved to #14 (no LSP yet).
 # Route: long notify -> split (user override); msg_show write/scroll noise
 # -> mini (LazyVim default).
-# "No information available" suppression = LazyVim autocmd in lsp.lua;
-# deferred to #14 where hover is configured.
+# "No information available" skip routes added in #36 (tailwind hover).
 { lib, mkPlugin, ... }:
 let
   key = lhs: rhs: mode: desc: {
@@ -69,6 +68,22 @@ in
             ];
           };
           view = "mini";
+        }
+        # tailwindcss-language-server hover noise (owner's old route).
+        {
+          filter = {
+            event = "notify";
+            find = "No information available";
+          };
+          opts.skip = true;
+        }
+        {
+          filter = {
+            event = "lsp";
+            kind = "message";
+            find = "No information available";
+          };
+          opts.skip = true;
         }
       ];
       presets = {
