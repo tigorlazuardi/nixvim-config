@@ -25,5 +25,6 @@
     ./lspconfig.nix
     ./blink-cmp.nix
     ./friendly-snippets.nix
+    ./conform.nix
   ];
 }

@@ -71,7 +71,7 @@ inputs:
 
       -- Pre-create autoGroups here: nixvim emits group definitions after
       -- autocmds in init.lua, but nvim_create_autocmd validates eagerly.
-      for _, group in ipairs({ "CheckTime", "ResizeSplits", "LastLoc", "CloseWithQ", "ManUnlisted", "WrapText", "AutoCreateDir", "WindowTitle" }) do
+      for _, group in ipairs({ "CheckTime", "ResizeSplits", "LastLoc", "CloseWithQ", "ManUnlisted", "WrapText", "AutoCreateDir", "WindowTitle", "LazyFormat" }) do
         vim.api.nvim_create_augroup(group, { clear = false })
       end
 
