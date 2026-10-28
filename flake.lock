@@ -137,6 +137,22 @@
         "type": "github"
       }
     },
+    "mini.files": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1793112409,
+        "narHash": "sha256-BKbwN/WBFYJb/S9+vwJffhZxhoYEmLd9mE57o/TityA=",
+        "owner": "nvim-mini",
+        "repo": "mini.files",
+        "rev": "6ac1d7f5c9e6a196c75cf6f1ea8055cef4ac9bbf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-mini",
+        "repo": "mini.files",
+        "type": "github"
+      }
+    },
     "mini.icons": {
       "flake": false,
       "locked": {
@@ -279,6 +295,7 @@
         "indent-blankline.nvim": "indent-blankline.nvim",
         "lualine.nvim": "lualine.nvim",
         "mini.ai": "mini.ai",
+        "mini.files": "mini.files",
         "mini.icons": "mini.icons",
         "mini.pairs": "mini.pairs",
         "nixpkgs": "nixpkgs",
@@ -287,10 +304,27 @@
         "nui.nvim": "nui.nvim",
         "nvim-treesitter-context": "nvim-treesitter-context",
         "nvim-treesitter-textobjects": "nvim-treesitter-textobjects",
+        "snacks.nvim": "snacks.nvim",
         "tiny-inline-diagnostic.nvim": "tiny-inline-diagnostic.nvim",
         "tokyonight.nvim": "tokyonight.nvim",
         "ts-comments.nvim": "ts-comments.nvim",
         "which-key.nvim": "which-key.nvim"
+      }
+    },
+    "snacks.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1779727538,
+        "narHash": "sha256-gU0XjCcnmZNwZ/erukA8miBiMKaSsSiInLtiv+OyEJI=",
+        "owner": "folke",
+        "repo": "snacks.nvim",
+        "rev": "882c996cf28183f4d63640de0b4c02ec886d01f2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "snacks.nvim",
+        "type": "github"
       }
     },
     "systems": {

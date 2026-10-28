@@ -20,5 +20,7 @@
     ./treesitter-context.nix
     ./catppuccin.nix
     ./tiny-inline-diagnostic.nix
+    ./snacks.nix
+    ./mini-files.nix
   ];
 }
