@@ -28,5 +28,6 @@
     ./conform.nix
     ./nvim-lint.nix
     ./typescript.nix
+    ./go.nix
   ];
 }

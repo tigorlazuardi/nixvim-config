@@ -133,6 +133,22 @@
         "type": "github"
       }
     },
+    "goimpl.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1775205264,
+        "narHash": "sha256-obYdJSSA2jDs56zWTkLF4t5b1AZl2aiHgvw+SZbIcak=",
+        "owner": "edolphin-ydf",
+        "repo": "goimpl.nvim",
+        "rev": "a67f37b4de705e31d1c17c394ea4d39cc96be8aa",
+        "type": "github"
+      },
+      "original": {
+        "owner": "edolphin-ydf",
+        "repo": "goimpl.nvim",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -382,6 +398,22 @@
         "type": "github"
       }
     },
+    "plenary.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1775800366,
+        "narHash": "sha256-nkfETDkPiE+Kd2BWYZijgUp9bP8RgFwRmvqJz2BMuq4=",
+        "owner": "nvim-lua",
+        "repo": "plenary.nvim",
+        "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-lua",
+        "repo": "plenary.nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "blink.cmp": "blink.cmp",
@@ -391,6 +423,7 @@
         "crane": "crane",
         "flash.nvim": "flash.nvim",
         "friendly-snippets": "friendly-snippets",
+        "goimpl.nvim": "goimpl.nvim",
         "home-manager": "home-manager",
         "indent-blankline.nvim": "indent-blankline.nvim",
         "lualine.nvim": "lualine.nvim",
@@ -406,7 +439,9 @@
         "nvim-lspconfig": "nvim-lspconfig",
         "nvim-treesitter-context": "nvim-treesitter-context",
         "nvim-treesitter-textobjects": "nvim-treesitter-textobjects",
+        "plenary.nvim": "plenary.nvim",
         "snacks.nvim": "snacks.nvim",
+        "telescope.nvim": "telescope.nvim",
         "tiny-inline-diagnostic.nvim": "tiny-inline-diagnostic.nvim",
         "tokyonight.nvim": "tokyonight.nvim",
         "ts-comments.nvim": "ts-comments.nvim",
@@ -443,6 +478,22 @@
         "owner": "nix-systems",
         "ref": "future-26.11",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "telescope.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1786964191,
+        "narHash": "sha256-Ci7D8aTUhh9DwwHvEV8Pndma8b/iwylUcoDKrIKVYN4=",
+        "owner": "nvim-telescope",
+        "repo": "telescope.nvim",
+        "rev": "40aedd8a68c78a656a10a8d62d80c54af59420fb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-telescope",
+        "repo": "telescope.nvim",
         "type": "github"
       }
     },
