@@ -1179,6 +1179,8 @@
                 cat > $HOME/probe.lua <<'LUA'
                 local function ok(c, m) if not c then error("FAIL: " .. m) end end
                 local function main()
+                  ok(vim.g.mapleader == " " and vim.g.maplocalleader == "\\", "leader keys set")
+                  ok(vim.fn.maparg("<leader>sp", "n") == "", "no lazy.nvim-only <leader>sp")
                   ok(vim.o.relativenumber and vim.o.ruler == false, "LazyVim options applied")
                   ok(vim.o.completeopt == "menu,menuone,noselect", "completeopt")
                   ok(vim.o.tabstop == 4 and vim.o.clipboard == "unnamedplus", "owner overrides kept")

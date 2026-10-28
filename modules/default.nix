@@ -87,10 +87,11 @@ inputs:
       end
     '';
 
-    globals = lib.mkDefault {
-      # Set leader key to space.
-      mapleader = " ";
-      maplocalleader = "\\";
+    # mkDefault per key: wrapping the whole attrset is dropped as soon as any
+    # other module (lz-n sets globals.lz_n) defines `globals` at normal priority.
+    globals = {
+      mapleader = lib.mkDefault " ";
+      maplocalleader = lib.mkDefault "\\";
     };
   };
 }

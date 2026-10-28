@@ -58,7 +58,6 @@ let
     (key "<leader>sG" ''
       Snacks.picker.grep({ root = false })
     '' "n" "Grep (cwd)")
-    (key "<leader>sp" "Snacks.picker.lazy()" "n" "Search for Plugin Spec")
     (key "<leader>sw" "Snacks.picker.grep_word()" [
       "n"
       "x"
@@ -153,6 +152,16 @@ in
     settings = lib.mkDefault {
       bigfile.enabled = true;
       dashboard = {
+        # Default sections end with { section = "startup" }, which requires
+        # lazy.stats (lazy.nvim boot data); there is no lazy.nvim here.
+        sections = [
+          { section = "header"; }
+          {
+            section = "keys";
+            gap = 1;
+            padding = 1;
+          }
+        ];
         preset = {
           header = ''
             ██╗      █████╗ ███████╗██╗   ██╗██╗   ██╗██╗███╗   ███╗          Z
