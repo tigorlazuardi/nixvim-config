@@ -151,3 +151,28 @@ tidak ada — tangani eksplisit.
 4. Validasi: `nix eval` + boot nvim headless
    (`nvim --headless "+Lazy! check" +qa` padanannya di sini: `nvim --headless +qa`)
    untuk memastikan tidak ada error startup.
+
+## Cara pakai (consumer / cutover)
+
+Repo ini mengekspor satu Home Manager module: `homeManagerModules.default`.
+
+```nix
+# flake.nix consumer
+inputs.nixvim-config = {
+  url = "github:tigorlazuardi/nixvim-config";
+  inputs.nixpkgs.follows = "nixpkgs";
+  inputs.home-manager.follows = "home-manager";
+};
+
+# home-manager module
+imports = [ inputs.nixvim-config.homeManagerModules.default ];
+```
+
+- Modul sudah meng-import `nixvim.homeModules.nixvim` sendiri, dan menyalakan `programs.nixvim` + `defaultEditor`.
+  Tidak perlu `programs.neovim.enable`. `viAlias`/`vimAlias` tidak dinyalakan (set `programs.nixvim.viAlias = true;` bila perlu).
+- Semua nilai konsumen-tunable `mkDefault`: override dengan menyetel path `programs.nixvim.*` yang sama.
+- Binary neovim = `config.programs.nixvim.build.package` (init sudah ter-bake via `wrapRc`).
+- Update satu plugin: `nix flake update <nama-input>` di repo ini lalu push, lalu `nix flake update nixvim-config` di consumer.
+- Jangan pakai bersama `programs.neovim` atau `inputs.nix-neovim-config.homeModules.default` pada user yang sama (bentrok `EDITOR`/`nvim`).
+- Neovide + font JetBrains Mono ikut terpasang lewat `home.packages` dan `fonts.fontconfig.enable` di modul ini.
+- Verifikasi di repo ini: `nix flake check` (21 check) dan `nix build .#default` lalu `result/bin/nvim`.
