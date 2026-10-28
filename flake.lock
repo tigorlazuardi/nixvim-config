@@ -265,6 +265,38 @@
         "type": "github"
       }
     },
+    "neotest": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1786894942,
+        "narHash": "sha256-BiU0OEN8kTbPbLr0f1ueHXFWwQN8djXlqqInFlV01rM=",
+        "owner": "nvim-neotest",
+        "repo": "neotest",
+        "rev": "27bf921498043f7ecd821d6db68d05de244bbd02",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-neotest",
+        "repo": "neotest",
+        "type": "github"
+      }
+    },
+    "neotest-golang": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1786017795,
+        "narHash": "sha256-EZG10y2ZLi0D33czCP3hv5azbWwBz3xEtNS5KdTk844=",
+        "owner": "fredrikaverpil",
+        "repo": "neotest-golang",
+        "rev": "65b2be63c3de00e6f15c05388ebdc8d603dbd727",
+        "type": "github"
+      },
+      "original": {
+        "owner": "fredrikaverpil",
+        "repo": "neotest-golang",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1791956154,
@@ -365,6 +397,22 @@
         "type": "github"
       }
     },
+    "nvim-nio": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1784103140,
+        "narHash": "sha256-7NWyTAF6cgB2weYRBmEtGnWlA+pn2A35wlLttOuLNN8=",
+        "owner": "nvim-neotest",
+        "repo": "nvim-nio",
+        "rev": "edcc181a875301dd21840189aa2f2f9ad69fc172",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-neotest",
+        "repo": "nvim-nio",
+        "type": "github"
+      }
+    },
     "nvim-treesitter-context": {
       "flake": false,
       "locked": {
@@ -431,12 +479,15 @@
         "mini.files": "mini.files",
         "mini.icons": "mini.icons",
         "mini.pairs": "mini.pairs",
+        "neotest": "neotest",
+        "neotest-golang": "neotest-golang",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
         "noice.nvim": "noice.nvim",
         "nui.nvim": "nui.nvim",
         "nvim-lint": "nvim-lint",
         "nvim-lspconfig": "nvim-lspconfig",
+        "nvim-nio": "nvim-nio",
         "nvim-treesitter-context": "nvim-treesitter-context",
         "nvim-treesitter-textobjects": "nvim-treesitter-textobjects",
         "plenary.nvim": "plenary.nvim",

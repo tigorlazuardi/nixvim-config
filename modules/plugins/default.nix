@@ -29,5 +29,6 @@
     ./nvim-lint.nix
     ./typescript.nix
     ./go.nix
+    ./neotest.nix
   ];
 }
