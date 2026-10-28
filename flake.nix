@@ -46,6 +46,46 @@
       url = "github:folke/flash.nvim";
       flake = false;
     };
+    "catppuccin" = {
+      url = "github:catppuccin/nvim";
+      flake = false;
+    };
+    "bufferline.nvim" = {
+      url = "github:akinsho/bufferline.nvim";
+      flake = false;
+    };
+    "lualine.nvim" = {
+      url = "github:nvim-lualine/lualine.nvim";
+      flake = false;
+    };
+    "which-key.nvim" = {
+      url = "github:folke/which-key.nvim";
+      flake = false;
+    };
+    "noice.nvim" = {
+      url = "github:folke/noice.nvim";
+      flake = false;
+    };
+    "nui.nvim" = {
+      url = "github:MunifTanjim/nui.nvim";
+      flake = false;
+    };
+    "mini.icons" = {
+      url = "github:nvim-mini/mini.icons";
+      flake = false;
+    };
+    "indent-blankline.nvim" = {
+      url = "github:lukas-reineke/indent-blankline.nvim";
+      flake = false;
+    };
+    "nvim-treesitter-context" = {
+      url = "github:nvim-treesitter/nvim-treesitter-context";
+      flake = false;
+    };
+    "tiny-inline-diagnostic.nvim" = {
+      url = "github:rachartier/tiny-inline-diagnostic.nvim";
+      flake = false;
+    };
   };
 
   outputs =
@@ -125,6 +165,43 @@
                   printf '%s\n' "$output"
                   exit 1
                 fi
+                touch $out
+              '';
+          nvim-ui =
+            pkgs.runCommand "nvim-ui-behaviour"
+              {
+                nvim = self.packages.${system}.default;
+              }
+              ''
+                export HOME=$(mktemp -d)
+                cd $HOME
+                printf 'package main\nfunc main(){}\n' > t.go
+                cat > probe.lua <<'LUA'
+                vim.cmd("doautocmd User DeferredUIEnter")
+                vim.wait(700, function() return false end)
+                vim.cmd("edit t.go")
+                vim.wait(500, function() return false end)
+                local function ok(c, m) if not c then error("FAIL: " .. m) end end
+                ok(package.loaded["bufferline"], "bufferline")
+                ok(package.loaded["lualine"], "lualine")
+                ok(package.loaded["which-key"], "which-key")
+                ok(package.loaded["noice"], "noice")
+                ok(package.loaded["ibl"], "ibl")
+                ok(package.loaded["tiny-inline-diagnostic"], "tiny")
+                ok(vim.wo.statusline:find("lualine") ~= nil, "statusline")
+                ok(vim.fn.maparg("<leader>bp", "n") ~= "", "map bp")
+                ok(vim.fn.maparg("<leader>snl", "n") ~= "", "map snl")
+                ok(vim.fn.exists(":TSContext") == 2, "TSContext")
+                ok(_G.__nvim_hl_fg("NonText") == nil or _G.__nvim_hl_fg("NonText"):find("^#"), "hl fg")
+                -- catppuccin stays lazy: switch must load it.
+                vim.cmd("colorscheme catppuccin")
+                vim.wait(500, function() return false end)
+                ok(vim.g.colors_name and vim.g.colors_name:find("^catppuccin") ~= nil, "catppuccin lazy switch, got " .. tostring(vim.g.colors_name))
+                print("UI_OK")
+                LUA
+                res=$("$nvim/bin/nvim" --headless -S probe.lua +qa 2>&1)
+                printf '%s\n' "$res"
+                printf '%s\n' "$res" | grep -qx UI_OK
                 touch $out
               '';
           nvim-treesitter =

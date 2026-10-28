@@ -72,6 +72,16 @@ inputs:
       for _, group in ipairs({ "CheckTime", "ResizeSplits", "LastLoc", "CloseWithQ", "ManUnlisted", "WrapText", "AutoCreateDir", "WindowTitle" }) do
         vim.api.nvim_create_augroup(group, { clear = false })
       end
+
+      -- Highlight-group fg helper for lualine colors (LazyVim uses
+      -- Snacks.util.color; snacks lives in ticket #12).
+      function _G.__nvim_hl_fg(name)
+        local ok, hl = pcall(vim.api.nvim_get_hl, 0, { name = name, link = false })
+        if not ok or not hl or not hl.fg then
+          return nil
+        end
+        return string.format("#%06x", hl.fg)
+      end
     '';
 
     globals = lib.mkDefault {

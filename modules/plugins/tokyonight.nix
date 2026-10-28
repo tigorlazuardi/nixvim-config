@@ -2,7 +2,11 @@
 { lib, mkPlugin, ... }:
 {
   programs.nixvim = {
-    colorscheme = lib.mkDefault "tokyonight";
+    # mkForce: two colorscheme modules are enabled (catppuccin is the lazy
+    # alternative), so the plain priorities of both nixvim colorscheme
+    # modules collide. Consumers switch the DEFAULT colorscheme with
+    # lib.mkForce too; runtime switch: :colorscheme catppuccin.
+    colorscheme = lib.mkForce "tokyonight";
     colorschemes.tokyonight = {
       enable = lib.mkDefault true;
       package = mkPlugin "tokyonight.nvim" {

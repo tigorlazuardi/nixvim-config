@@ -10,5 +10,15 @@
     ./mini-ai.nix
     ./mini-pairs.nix
     ./flash.nix
+    ./bufferline.nix
+    ./lualine.nix
+    ./which-key.nix
+    ./noice.nix
+    ./nui.nix
+    ./mini-icons.nix
+    ./indent-blankline.nix
+    ./treesitter-context.nix
+    ./catppuccin.nix
+    ./tiny-inline-diagnostic.nix
   ];
 }
