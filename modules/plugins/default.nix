@@ -31,5 +31,6 @@
     ./go.nix
     ./neotest.nix
     ./web.nix
+    ./lazydev.nix
   ];
 }
