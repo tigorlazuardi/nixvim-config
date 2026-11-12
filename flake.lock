@@ -3,11 +3,11 @@
     "SchemaStore.nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1794416444,
-        "narHash": "sha256-b75Ir0JcPHLPFgIo2EgxRIwANPzFHwR/+/mlRHJR0xU=",
+        "lastModified": 1794441752,
+        "narHash": "sha256-bMWWfbUtZxudy9R2Od/VnjNjBbQoCX0wNVp7UEM6pdU=",
         "owner": "b0o",
         "repo": "SchemaStore.nvim",
-        "rev": "fec0f4098b764f14eec5d8225f2b573e802c82fb",
+        "rev": "13a365fa7a893891fe8724390ad7e608d1c1c59b",
         "type": "github"
       },
       "original": {
@@ -315,11 +315,11 @@
     "mini.ai": {
       "flake": false,
       "locked": {
-        "lastModified": 1794154560,
-        "narHash": "sha256-faRDaZif0QZt0ktUEkUIADyELhFljgDGcFe6pqxTSBc=",
+        "lastModified": 1794501509,
+        "narHash": "sha256-KUfxcNj94CZ5uwslfalGkhFoYpatz39eLMIXuUnOlUA=",
         "owner": "nvim-mini",
         "repo": "mini.ai",
-        "rev": "98a5d73937930a2bb08129020601ab8d5016d706",
+        "rev": "f40e4fe729a568357218d599edb5ca107cf94af4",
         "type": "github"
       },
       "original": {
@@ -426,11 +426,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1794042290,
-        "narHash": "sha256-VZ8WvA9m3XN36juXyg/GwbDRU2OezOHJlXpJCXkccv0=",
-        "rev": "f4a03c008967841f2a0b3cb7c436fc6fc31671f6",
+        "lastModified": 1794386569,
+        "narHash": "sha256-W60urNAgQVS8bhNWH0bQsYoiagds8m38oTDUjEOM9FE=",
+        "rev": "d4f25a3e562008648d45bcf2d70bcc7422cad84e",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1113206.f4a03c008967/nixexprs.tar.zst"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1117658.d4f25a3e5620/nixexprs.tar.zst"
       },
       "original": {
         "id": "nixpkgs",
