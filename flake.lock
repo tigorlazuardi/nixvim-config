@@ -3,11 +3,11 @@
     "SchemaStore.nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1794589236,
-        "narHash": "sha256-zI/GWIl3AzptwTfJTIQszgltKEN+QKhfxi4dDuOXC+o=",
+        "lastModified": 1794614547,
+        "narHash": "sha256-nfOcCSP3TOwLJg1W+A1WD7z05DsDnNwPWEgYf7H/Hfg=",
         "owner": "b0o",
         "repo": "SchemaStore.nvim",
-        "rev": "73d02d6f22c7a33354c660bb07040c2b745359a0",
+        "rev": "e8c3d2225d6bf5e2cbe414952c247d7a3411849b",
         "type": "github"
       },
       "original": {
@@ -235,11 +235,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794278858,
-        "narHash": "sha256-rkrJwLgLSHBnXfgoSKIDa+2LLGdTqynsV3GAxOTGhUU=",
+        "lastModified": 1794715309,
+        "narHash": "sha256-awkBBs5ctFKgEYjpNGpi3t/VqF589n5EWfdinRb2gNI=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "82ce401aa350502897c3f2e85f384d61cd3b0b6d",
+        "rev": "a1293da7dd8e497e08d26173f97e2976b36a31ea",
         "type": "github"
       },
       "original": {
@@ -426,11 +426,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1794386569,
-        "narHash": "sha256-W60urNAgQVS8bhNWH0bQsYoiagds8m38oTDUjEOM9FE=",
-        "rev": "d4f25a3e562008648d45bcf2d70bcc7422cad84e",
+        "lastModified": 1794537146,
+        "narHash": "sha256-bTKSclXJAmo9qdxPedTBHUGr8awPr4BrbOoOutJsYIc=",
+        "rev": "d5cc6833999746cffdfe0598f7bc801a57b887a9",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1117658.d4f25a3e5620/nixexprs.tar.zst"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1119549.d5cc68339997/nixexprs.tar.zst"
       },
       "original": {
         "id": "nixpkgs",
@@ -511,11 +511,11 @@
     "nvim-lspconfig": {
       "flake": false,
       "locked": {
-        "lastModified": 1794275874,
-        "narHash": "sha256-msQSsrB6PjgaO09q3iTSS7ydiUA/XRYuwi6gh3Vk74Q=",
+        "lastModified": 1794838589,
+        "narHash": "sha256-y5gjWqbnFCb1PSSVsHOzBLiOMFj2vD3iTNC5NzPC08k=",
         "owner": "neovim",
         "repo": "nvim-lspconfig",
-        "rev": "443d92c6bea761ab54cdde46fb197a2b4d614bdd",
+        "rev": "6a3ddecf60e19f164390308f502e67f3199f58e8",
         "type": "github"
       },
       "original": {
