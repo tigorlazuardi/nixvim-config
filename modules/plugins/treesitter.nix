@@ -52,6 +52,8 @@ in
           query
           rasi
           regex
+          ron
+          rust
           toml
           svelte
           tsx

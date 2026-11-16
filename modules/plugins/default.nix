@@ -32,6 +32,7 @@
     ./nvim-lint.nix
     ./typescript.nix
     ./go.nix
+    ./rust.nix
     ./neotest.nix
     ./web.nix
     ./lazydev.nix
