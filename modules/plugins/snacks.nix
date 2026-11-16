@@ -6,8 +6,14 @@
 #   override).
 # - image module off (not in curation).
 # - smooth scrolling: scroll.enabled, not smooth (renamed upstream).
-{ lib, mkPlugin, ... }:
+{
+  lib,
+  pkgs,
+  mkPlugin,
+  ...
+}:
 let
+  fortuneHeader = import ./dashboard-fortune.nix { inherit lib pkgs; };
   key = lhs: rhs: mode: desc: {
     __unkeyed-1 = lhs;
     __unkeyed-2.__raw = "function() ${rhs} end";
@@ -155,7 +161,7 @@ in
         # Default sections end with { section = "startup" }, which requires
         # lazy.stats (lazy.nvim boot data); there is no lazy.nvim here.
         sections = [
-          { section = "header"; }
+          fortuneHeader
           {
             section = "keys";
             gap = 1;
