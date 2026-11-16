@@ -17,7 +17,10 @@ pkgs.runCommand "nvim-typescript-behaviour"
     local function ok(c, m) if not c then error("FAIL: " .. m) end end
     local function main()
       vim.cmd("edit src/a.ts")
-      ok(vim.wait(30000, function() return #vim.lsp.get_clients({ bufnr = 0 }) >= 2 end, 100), "tsc + biome attach")
+      ok(vim.wait(60000, function()
+        return #vim.lsp.get_clients({ bufnr = 0, name = "tsc" }) > 0
+          and #vim.lsp.get_clients({ bufnr = 0, name = "biome" }) > 0
+      end, 100), "tsc + biome attach")
       local names = {}
       for _, c in ipairs(vim.lsp.get_clients({ bufnr = 0 })) do names[c.name] = true end
       ok(names.tsc and names.biome, "clients tsc and biome")

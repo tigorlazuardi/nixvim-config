@@ -30,7 +30,8 @@ pkgs.runCommand "nvim-neotest-behaviour"
       ok(vim.tbl_contains(names, "neotest-golang"), "golang adapter loaded")
       local started
       require("nio").run(function() nt.run.run(vim.fn.expand("%")); started = true end)
-      ok(vim.wait(20000, function() return started end, 100), "run started")
+      -- nt.run.run blocks until `go test -race` finishes, so allow for a slow sandbox.
+      ok(vim.wait(120000, function() return started end, 100), "run started")
       ok(vim.wait(90000, function()
         local ids = nt.state.adapter_ids()
         if not ids or #ids == 0 then return false end
@@ -43,7 +44,7 @@ pkgs.runCommand "nvim-neotest-behaviour"
     if not good then io.stdout:write(tostring(err) .. "\n") end
     vim.cmd(good and "qa!" or "cquit")
     LUA
-    res=$(timeout 150 "$nvim/bin/nvim" --headless -S $HOME/probe.lua 2>&1) || true
+    res=$(timeout 280 "$nvim/bin/nvim" --headless -S $HOME/probe.lua 2>&1) || true
     printf '%s\n' "$res"
     printf '%s\n' "$res" | grep -q NEOTEST_OK
     touch $out
