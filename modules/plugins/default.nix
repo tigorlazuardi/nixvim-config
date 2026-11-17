@@ -33,6 +33,7 @@
     ./typescript.nix
     ./go.nix
     ./rust.nix
+    ./dart.nix
     ./neotest.nix
     ./web.nix
     ./lazydev.nix

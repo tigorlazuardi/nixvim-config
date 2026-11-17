@@ -22,6 +22,7 @@ in
           bash
           c
           css
+          dart
           diff
           dockerfile
           fish

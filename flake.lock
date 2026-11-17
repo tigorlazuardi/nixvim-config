@@ -164,6 +164,22 @@
         "type": "github"
       }
     },
+    "flutter-tools.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1793364975,
+        "narHash": "sha256-uXibetGM+6zVoLNde1EiPqPD6W8kM8Q98lkUE8qMoZs=",
+        "owner": "nvim-flutter",
+        "repo": "flutter-tools.nvim",
+        "rev": "7034ae42d5c67708db076d20937c269c6c6e8937",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-flutter",
+        "repo": "flutter-tools.nvim",
+        "type": "github"
+      }
+    },
     "friendly-snippets": {
       "flake": false,
       "locked": {
@@ -648,6 +664,7 @@
         "dial.nvim": "dial.nvim",
         "flake-file": "flake-file",
         "flash.nvim": "flash.nvim",
+        "flutter-tools.nvim": "flutter-tools.nvim",
         "friendly-snippets": "friendly-snippets",
         "gitsigns.nvim": "gitsigns.nvim",
         "goimpl.nvim": "goimpl.nvim",

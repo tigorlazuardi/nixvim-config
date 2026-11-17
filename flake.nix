@@ -48,6 +48,10 @@
       url = "github:folke/flash.nvim";
       flake = false;
     };
+    "flutter-tools.nvim" = {
+      url = "github:nvim-flutter/flutter-tools.nvim";
+      flake = false;
+    };
     friendly-snippets = {
       url = "github:rafamadriz/friendly-snippets";
       flake = false;
