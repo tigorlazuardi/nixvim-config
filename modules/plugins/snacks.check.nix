@@ -22,19 +22,14 @@ pkgs.runCommand "nvim-snacks-behaviour"
     local cfg = require("mini.files").config
     ok(cfg.windows.preview == true, "preview on")
     ok(cfg.content.filter == nil or cfg.content.filter({ name = ".x", fs_type = "file" }) == true, "no filtering")
-    -- dashboard header = fortune|cowsay, computed once per start (not per render)
+    -- dashboard header = static TIGOR banner (no fortune/cowsay subprocess)
     require("mini.files").close() -- floating explorer from the check above
     vim.cmd("only")
     Snacks.dashboard.open()
     vim.wait(800, function() return false end)
-    local function text() return table.concat(vim.api.nvim_buf_get_lines(0, 0, -1, false), "\n") end
-    local first = text()
-    ok(first:find("Find File", 1, true), "dashboard keys still rendered")
-    ok(first:find("\\   ", 1, false) or first:find("\\\n", 1, true) or first:find("--", 1, true), "cowsay output in header")
-    ok(not first:find("████", 1, true), "fortune header, not static banner")
-    Snacks.dashboard.update()
-    vim.wait(500, function() return false end)
-    ok(text():gsub("%s+", "") == first:gsub("%s+", ""), "same quote on re-render")
+    local text = table.concat(vim.api.nvim_buf_get_lines(0, 0, -1, false), "\n")
+    ok(text:find("Find File", 1, true), "dashboard keys still rendered")
+    ok(text:find("████", 1, true), "static banner header")
     print("SNACKS_OK")
     LUA
     res=$("$nvim/bin/nvim" --headless -S probe.lua +qa 2>&1)
