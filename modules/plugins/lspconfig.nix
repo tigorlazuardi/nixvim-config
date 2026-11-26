@@ -45,7 +45,14 @@ in
           didRename = true;
           willRename = true;
         };
-        nil_ls.enable = lib.mkDefault true;
+        nil_ls = {
+          enable = lib.mkDefault true;
+          # Default (null) asks "run nix flake archive?" on every flake
+          # workspace; true runs it silently in the background when nil
+          # needs the flake inputs (completion for inputs.*). Set false to
+          # never touch the network.
+          config.settings.nil.nix.flake.autoArchive = lib.mkDefault true;
+        };
       };
 
       # Inlay hints on everywhere except vue (LazyVim default).

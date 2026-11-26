@@ -17,6 +17,7 @@ pkgs.runCommand "nvim-lsp-behaviour"
     vim.cmd("edit t.nix")
     ok(vim.wait(8000, function() return #vim.lsp.get_clients({ bufnr = 0, name = "nil_ls" }) > 0 end, 100), "nil_ls attach")
     ok(vim.lsp.inlay_hint.is_enabled({ bufnr = 0 }), "inlay hints on")
+    ok(vim.lsp.get_clients({ bufnr = 0, name = "nil_ls" })[1].config.settings["nil"].nix.flake.autoArchive == true, "no nix flake archive prompt")
     ok(vim.diagnostic.config().virtual_text == false, "virtual_text off")
     for _, k in ipairs({ "]]", "[[", "gd", "K", "<leader>ca", "<leader>cr", "<leader>cR", "<leader>uh" }) do
       ok(vim.fn.maparg(k, "n") ~= "", "map " .. k)
