@@ -19,6 +19,7 @@ pkgs.runCommand "nvim-lazyvim-defaults-behaviour"
       ok(vim.o.tabstop == 4 and vim.o.clipboard == "unnamedplus", "owner overrides kept")
       ok(vim.o.foldlevelstart == 99 and vim.o.foldlevel == 99, "folds open")
       ok(vim.o.mousefocus, "mousefocus")
+      ok(vim.o.guicursor:find("n%-v%-c%-sm:block") and vim.o.guicursor:find("i%-ci%-ve:ver25"), "cursor block/beam")
       local keys = {
         { "n", "<C-Up>" }, { "n", "<leader>-" }, { "n", "<leader>wd" }, { "n", "<A-j>" },
         { "v", "<A-j>" }, { "n", "<leader>bb" }, { "n", "<leader>bd" }, { "n", "<leader><tab><tab>" },

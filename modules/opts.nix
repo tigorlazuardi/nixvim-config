@@ -27,6 +27,10 @@
     formatoptions = "jcroqlnt";
     grepformat = "%f:%l:%c:%m";
     grepprg = "rg --vimgrep";
+    # Block in normal/visual, beam in insert, underline in replace: mode is
+    # visible from the cursor alone. Needs a terminal that honours DECSCUSR
+    # (most do; tmux needs `terminal-overrides`, Neovide uses the GUI cursor).
+    guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr:hor20,o:hor50";
     foldlevel = 99;
     foldtext = "";
     ignorecase = true;
